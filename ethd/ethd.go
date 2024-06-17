@@ -39,9 +39,7 @@ func New(mnemonic, password string) (*Wallet, error) {
 		return nil, err
 	}
 
-	return &Wallet{
-		masterKey: masterKey,
-	}, nil
+	return &Wallet{masterKey: masterKey}, nil
 }
 
 // NewFromSeed creates a new Wallet instance from a seed
@@ -95,7 +93,6 @@ func (w *Wallet) Derive(path accounts.DerivationPath) (*Derived, error) {
 		PublicKey:   publicKey,
 	}, nil
 }
-
 
 // Account returns an ethereum account.
 func (d *Derived) Account() accounts.Account {
