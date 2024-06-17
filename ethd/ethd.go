@@ -1,4 +1,4 @@
-package hdwallet
+package ethd
 
 import (
 	"crypto/ecdsa"
