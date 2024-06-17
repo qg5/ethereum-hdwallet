@@ -6,7 +6,7 @@ import (
 	"math/big"
 
 	"github.com/ethereum/go-ethereum/common"
-	ethd "github.com/qg5/ethereum-hdwallet/hdwallet"
+	"github.com/qg5/ethereum-hdwallet/ethd"
 	"github.com/qg5/ethereum-hdwallet/transaction"
 )
 
