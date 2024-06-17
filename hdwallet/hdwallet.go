@@ -54,7 +54,7 @@ func CreateDerivationPath(index int) (accounts.DerivationPath, error) {
 	return parsed, nil
 }
 
-// Derive derived the master key using the provided path.
+// Derive derives the master key using the provided path.
 func (w *Wallet) Derive(path accounts.DerivationPath) (*Derived, error) {
 	key := w.masterKey
 	var err error
