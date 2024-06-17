@@ -8,7 +8,7 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
-	ethd "github.com/qg5/ethereum-hdwallet/hdwallet"
+	"github.com/qg5/ethereum-hdwallet/ethd"
 	"github.com/qg5/ethereum-hdwallet/transaction"
 )
 
