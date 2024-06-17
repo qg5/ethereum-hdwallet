@@ -5,7 +5,7 @@ import (
 	"log"
 
 	"github.com/ethereum/go-ethereum/crypto"
-	ethd "github.com/qg5/ethereum-hdwallet/hdwallet"
+	"github.com/qg5/ethereum-hdwallet/ethd"
 )
 
 func main() {
