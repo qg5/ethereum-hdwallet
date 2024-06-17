@@ -64,16 +64,15 @@ func CreateDerivationPath(index int) (accounts.DerivationPath, error) {
 	return parsed, nil
 }
 
-// Derive derives the master key using the provided path.
+// Derive derived the master key using the provided path.
 func (w *Wallet) Derive(path accounts.DerivationPath) (*Derived, error) {
 	key := w.masterKey
 	var err error
 
 	for _, n := range path {
-		if key.IsAffectedByIssue172() {
-			key, err = key.Derive(n)
-		} else {
-			key, err = key.DeriveNonStandard(n)
+		key, err = key.Derive(n)
+		if err == hd.ErrInvalidChild {
+			return nil, errors.New("the extended key at this index is invalid, increase the index and try again")
 		}
 
 		if err != nil {
@@ -95,6 +94,7 @@ func (w *Wallet) Derive(path accounts.DerivationPath) (*Derived, error) {
 		PublicKey:   publicKey,
 	}, nil
 }
+
 
 // Account returns an ethereum account.
 func (d *Derived) Account() accounts.Account {
