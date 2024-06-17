@@ -7,6 +7,10 @@ A GoLang library for hierarchical deterministic wallets (HD wallets) compatible 
 go get -u github.com/qg5/ethereum-hdwallet
 ```
 
+## Provisional docs
+
+https://pkg.go.dev/github.com/qg5/ethereum-hdwallet
+
 ## Getting Started
 
 ```go
