@@ -2,9 +2,9 @@ package ethd
 
 import (
 	"crypto/ecdsa"
+	"errors"
 	"fmt"
 
-	"errors"
 	hd "github.com/btcsuite/btcd/btcutil/hdkeychain"
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/ethereum/go-ethereum/accounts"
