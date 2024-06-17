@@ -1,5 +1,5 @@
 # Ethereum HDWallet
-A GoLang library for hierarchical deterministic wallets (HD wallets) compatible with Ethereum.
+A Go library for hierarchical deterministic wallets (HD wallets) compatible with Ethereum.
 
 ## Installation
 
