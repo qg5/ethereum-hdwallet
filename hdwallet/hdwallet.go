@@ -43,6 +43,16 @@ func New(mnemonic, password string) (*Wallet, error) {
 	}, nil
 }
 
+// NewFromSeed creates a new Wallet instance from a seed
+func NewFromSeed(seed []byte) (*Wallet, error) {
+	masterKey, err := hd.NewMaster(seed, &chaincfg.MainNetParams)
+	if err != nil {
+		return nil, err
+	}
+
+	return &Wallet{masterKey: masterKey}, nil
+}
+
 // CreateDerivationPath creates a derivation path from an index
 func CreateDerivationPath(index int) (accounts.DerivationPath, error) {
 	path := fmt.Sprintf(DefaultDerivationPath, index)
