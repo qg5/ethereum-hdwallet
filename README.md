@@ -1,15 +1,13 @@
 # Ethereum HDWallet
 A Go library for hierarchical deterministic wallets (HD wallets) compatible with Ethereum.
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/qg5/ethereum-hdwallet.svg)](https://pkg.go.dev/github.com/qg5/ethereum-hdwallet)
+
 ## Installation
 
 ```bash
 go get -u github.com/qg5/ethereum-hdwallet
 ```
-
-## Provisional docs
-
-https://pkg.go.dev/github.com/qg5/ethereum-hdwallet
 
 ## Getting Started
 
