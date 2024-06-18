@@ -71,7 +71,7 @@ func CreateDerivationPath(index int) (accounts.DerivationPath, error) {
 // Derive derives an extended key from the masterKey using the provided derivation path.
 // It also derives the corresponding private key, public key, and address at that path
 func (w *Wallet) Derive(path accounts.DerivationPath) (*Derived, error) {
-	key, err := w.deriveKey(path)
+	key, err := deriveKey(w.masterKey, path)
 	if err != nil {
 		return nil, err
 	}
@@ -91,10 +91,14 @@ func (w *Wallet) Derive(path accounts.DerivationPath) (*Derived, error) {
 	}, nil
 }
 
-// deriveKey derives an extended key from the masterKey using the provided derivation
+// Account returns an ethereum account
+func (d *Derived) Account() accounts.Account {
+	return accounts.Account{Address: d.Address}
+}
+
+// deriveKey derives an extended key from the provided key using the provided derivation
 // path
-func (w *Wallet) deriveKey(path accounts.DerivationPath) (*hd.ExtendedKey, error) {
-	key := w.masterKey
+func deriveKey(key *hd.ExtendedKey, path accounts.DerivationPath) (*hd.ExtendedKey, error) {
 	var err error
 
 	for _, n := range path {
@@ -109,11 +113,6 @@ func (w *Wallet) deriveKey(path accounts.DerivationPath) (*hd.ExtendedKey, error
 	}
 
 	return key, nil
-}
-
-// Account returns an ethereum account
-func (d *Derived) Account() accounts.Account {
-	return accounts.Account{Address: d.Address}
 }
 
 // getPrivateKey gets the ecdsa private key from the extended key
