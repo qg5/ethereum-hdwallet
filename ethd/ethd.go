@@ -52,7 +52,7 @@ func NewFromSeed(seed []byte) (*Wallet, error) {
 	return &Wallet{masterKey: masterKey}, nil
 }
 
-// ParseDerivationPath parses the provided derivation path.
+// ParseDerivationPath parses the provided derivation path
 func ParseDerivationPath(path string) (accounts.DerivationPath, error) {
 	parsed, err := accounts.ParseDerivationPath(path)
 	if err != nil {
@@ -62,7 +62,7 @@ func ParseDerivationPath(path string) (accounts.DerivationPath, error) {
 	return parsed, nil
 }
 
-// CreateDerivationPath creates a derivation path from an index
+// CreateDerivationPath creates a derivation path from an index using DefaultDerivationPath
 func CreateDerivationPath(index int) (accounts.DerivationPath, error) {
 	path := fmt.Sprintf(DefaultDerivationPath, index)
 	return ParseDerivationPath(path)
