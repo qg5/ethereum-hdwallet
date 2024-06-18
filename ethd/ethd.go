@@ -68,6 +68,11 @@ func CreateDerivationPath(index int) (accounts.DerivationPath, error) {
 	return ParseDerivationPath(path)
 }
 
+// MasterKey returns the master key
+func (w *Wallet) MasterKey() *hd.ExtendedKey {
+	return w.masterKey
+}
+
 // Derive derives an extended key from the masterKey using the provided derivation path.
 // It also derives the corresponding private key, public key, and address at that path
 func (w *Wallet) Derive(path accounts.DerivationPath) (*Derived, error) {
