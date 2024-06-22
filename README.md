@@ -28,6 +28,7 @@ func main() {
 		log.Fatal(err)
 	}
 
+	// This will generate the following derivation path: "m/44'/60'/0'/0/1"
 	path, err := ethd.CreateDerivationPath(0)
 	if err != nil {
 		log.Fatal(err)
