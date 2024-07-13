@@ -18,13 +18,13 @@ func NewTx(nonce uint64, to *common.Address, amount *big.Int, gasLimit uint64, g
 
 // NewTxWithClient makes use of the ethereum client in order to build a new transaction.
 // This method uses types.DynamicFeeTx and not types.LegacyTx
-func NewTxWithClient(ctx context.Context, client *ethclient.Client, from common.Address, to common.Address, amount *big.Int) (*types.Transaction, error) {
+func NewTxWithClient(ctx context.Context, client *ethclient.Client, from common.Address, to common.Address, amount *big.Int, data []byte) (*types.Transaction, error) {
 	nonce, err := client.PendingNonceAt(ctx, from)
 	if err != nil {
 		return nil, err
 	}
 
-	gasLimit, err := client.EstimateGas(ctx, ethereum.CallMsg{To: &to, Value: amount})
+	gasLimit, err := client.EstimateGas(ctx, ethereum.CallMsg{To: &to, Value: amount, Data: data})
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewTxWithClient(ctx context.Context, client *ethclient.Client, from common.
 		Gas:        gasLimit,
 		GasFeeCap:  gasPrice,
 		GasTipCap:  gasTipCap,
-		Data:       nil,
+		Data:       data,
 		AccessList: nil,
 	})
 

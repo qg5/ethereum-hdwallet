@@ -37,7 +37,7 @@ func main() {
 	destination := common.HexToAddress("0x0")
 	amount := big.NewInt(1000000000000000000)
 
-	tx, err := transaction.NewTxWithClient(context.Background(), client, from, destination, amount)
+	tx, err := transaction.NewTxWithClient(context.Background(), client, from, destination, amount, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
