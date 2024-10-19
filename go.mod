@@ -3,7 +3,7 @@ module github.com/qg5/ethereum-hdwallet
 go 1.22.2
 
 require (
-	github.com/btcsuite/btcd v0.23.5-0.20231215221805-96c9fd8078fd
+	github.com/btcsuite/btcd v0.24.2-beta.rc1
 	github.com/btcsuite/btcd/btcutil v1.1.5
 	github.com/ethereum/go-ethereum v1.14.5
 	github.com/tyler-smith/go-bip39 v1.1.0
